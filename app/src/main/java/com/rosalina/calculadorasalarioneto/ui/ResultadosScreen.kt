@@ -32,6 +32,7 @@ fun ResultadosScreen(
             Text("Salario neto anual: ${formatoEuros(resultado.salarioNeto)}")
             Text("Neto por paga: ${formatoEuros(resultado.netoPorPaga)} ")
             Text("Retención IRPF: ${formatoEuros(resultado.retencionIrpf)}")
+            Text("Deducciones aplicadas: ${formatoEuros(resultado.deducciones)}")
         }
         Button(onClick = onVolver) { Text("Volver") }
     }

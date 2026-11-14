@@ -24,10 +24,19 @@ fun calcularSalario(datos: DatosFormulario): ResultadoSalario? {
     val cotizacionSS = bruto * 0.0648
     val gastosDeducibles = 2000.0
     val baseIrpf = maxOf(bruto - cotizacionSS - gastosDeducibles, 0.0)
-    val retencionIrpf = cuotaPorTramos(baseIrpf)
-    val deducciones = 0.0
+    val edad = datos.edad.toIntOrNull() ?: 0
+    val hijos = datos.hijos.toIntOrNull() ?: 0
+
+    val minimoTotal = 5550.0 +
+            minimoPorEdad(edad) +
+            minimoPorHijos(hijos) +
+            minimoPorDiscapacidad(datos.gradoDiscapacidad)
+
+    val deducciones = cuotaPorTramos(minimoTotal)
+    val retencionIrpf = maxOf(cuotaPorTramos(baseIrpf) - deducciones, 0.0)
 
     val neto = bruto - cotizacionSS - retencionIrpf
+
     return ResultadoSalario(
         bruto,
         cotizacionSS,
@@ -50,4 +59,29 @@ fun cuotaPorTramos(base: Double): Double {
         limiteInferior = limiteSuperior
     }
     return cuota
+}
+
+private fun minimoPorEdad(edad: Int): Double = when {
+    edad > 75 -> 1150.0 + 1400.0
+    edad > 65 -> 1150.0
+    else -> 0.0
+}
+
+private fun minimoPorHijos(hijos: Int): Double {
+    var total = 0.0
+    for (i in 1..hijos) {
+        total += when (i) {
+            1 -> 2400.0
+            2 -> 2700.0
+            3 -> 4000.0
+            else -> 4500.0
+        }
+    }
+    return total
+}
+
+private fun minimoPorDiscapacidad(discapacidad: String): Double = when (discapacidad) {
+    "33% - 64%" -> 3000.0
+    "65% o más" -> 9000.0
+    else -> 0.0
 }
