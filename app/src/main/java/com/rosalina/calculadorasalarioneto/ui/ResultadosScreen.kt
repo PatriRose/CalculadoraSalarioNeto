@@ -22,8 +22,16 @@ fun ResultadosScreen(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Text("Resultados", style = MaterialTheme.typography.headlineSmall)
-        Text("Salario bruto: ${datos.salarioBruto} €")
-        Text("Edad: ${datos.edad} años")
+        val resultado = calcularSalario(datos)
+
+        if (resultado == null) {
+            Text("Introduce un salario bruto válido")
+        } else {
+            Text("Salario bruto: ${resultado.salarioBruto} €")
+            Text("Seguridad Social: ${resultado.cotizacionSS} €")
+            Text("Salario neto anual: ${resultado.salarioNeto} €")
+            Text("Neto por paga: ${resultado.netoPorPaga} €")
+        }
         Button(onClick = onVolver) { Text("Volver") }
     }
 }
