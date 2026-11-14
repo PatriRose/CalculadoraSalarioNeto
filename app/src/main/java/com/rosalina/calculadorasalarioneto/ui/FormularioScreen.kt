@@ -11,8 +11,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FormularioScreen(modifier: Modifier = Modifier) {
-
+fun FormularioScreen(
+    datos: DatosFormulario,
+    onDatosChange: (DatosFormulario) -> Unit,
+    onCalcular: () -> Unit,
+    modifier: Modifier = Modifier) {
+/*
     var salarioBruto by remember { mutableStateOf("") }
     var edad by remember { mutableStateOf("") }
     var hijos by remember { mutableStateOf("") }
@@ -20,7 +24,7 @@ fun FormularioScreen(modifier: Modifier = Modifier) {
     var pagas by remember { mutableStateOf(value = "12") }
     var grupoProfesional by remember {mutableStateOf(value = "1")}
     var gradoDiscapacidad by remember { mutableStateOf(value = "Sin discapacidad") }
-
+*/
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -33,44 +37,47 @@ fun FormularioScreen(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.headlineSmall
         )
         CampoNumerico(
-            valor = salarioBruto,
-            { salarioBruto = it },
+            valor = datos.salarioBruto,
+            { onDatosChange(datos.copy(salarioBruto = it)) },
             etiqueta = "Salario bruto anual (€)"
         )
         CampoNumerico(
-            valor = edad,
-            { edad = it },
+            valor = datos.edad,
+            { onDatosChange(datos.copy(edad = it)) },
             etiqueta = "Edad"
         )
         CampoNumerico(
-            valor = hijos,
-            { hijos = it },
+            valor = datos.hijos,
+            { onDatosChange(datos.copy(hijos= it)) },
             etiqueta = "Número de hijos"
         )
         CampoDesplegable(
-            seleccion = estadoCivil,
-            onSeleccion = {estadoCivil = it },
+            seleccion = datos.estadoCivil,
+            onSeleccion = { onDatosChange(datos.copy (estadoCivil = it)) },
             opciones = listOf("Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"),
             etiqueta = "Estado Civil"
         )
         CampoDesplegable(
-            seleccion = pagas,
-            onSeleccion = { pagas = it },
+            seleccion = datos.pagas,
+            onSeleccion = { onDatosChange( datos.copy(pagas = it)) },
             opciones = listOf("12", "14", "14+Var"),
             etiqueta = "Número de pagas"
         )
         CampoDesplegable(
-            seleccion = grupoProfesional,
-            onSeleccion = { grupoProfesional = it },
+            seleccion = datos.grupoProfesional,
+            onSeleccion = { onDatosChange(datos.copy(grupoProfesional = it)) },
             opciones = (1 .. 11).map {"Grupo $it"},
             etiqueta = "Grupo Profesional"
         )
         CampoDesplegable(
-            seleccion = gradoDiscapacidad,
-            onSeleccion = { gradoDiscapacidad = it },
+            seleccion = datos.gradoDiscapacidad,
+            onSeleccion = { onDatosChange (datos.copy (gradoDiscapacidad = it)) },
             opciones = listOf("Sin discapacidad", "33% - 64%", "65% o más"),
             etiqueta = "Grado Discapacidad"
         )
+        Button(onClick = onCalcular, modifier = Modifier.fillMaxWidth()){
+            Text("Calcular")
+        }
     }
 }
 

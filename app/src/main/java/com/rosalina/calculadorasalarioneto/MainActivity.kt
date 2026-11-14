@@ -8,8 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import com.rosalina.calculadorasalarioneto.ui.AppNavigation
 import com.rosalina.calculadorasalarioneto.ui.theme.CalculadoraSalarioNetoTheme
-import com.rosalina.calculadorasalarioneto.ui.FormularioScreen
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CalculadoraSalarioNetoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    FormularioScreen(modifier = Modifier.padding(innerPadding)   )
+                    AppNavigation(modifier = Modifier.padding(innerPadding)   )
 
                 }
             }
