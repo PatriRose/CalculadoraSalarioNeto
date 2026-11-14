@@ -27,10 +27,11 @@ fun ResultadosScreen(
         if (resultado == null) {
             Text("Introduce un salario bruto válido")
         } else {
-            Text("Salario bruto: ${resultado.salarioBruto} €")
-            Text("Seguridad Social: ${resultado.cotizacionSS} €")
-            Text("Salario neto anual: ${resultado.salarioNeto} €")
-            Text("Neto por paga: ${resultado.netoPorPaga} €")
+            Text("Salario bruto: ${formatoEuros(resultado.salarioBruto)}")
+            Text("Seguridad Social: ${formatoEuros(resultado.cotizacionSS)}")
+            Text("Salario neto anual: ${formatoEuros(resultado.salarioNeto)}")
+            Text("Neto por paga: ${formatoEuros(resultado.netoPorPaga)} ")
+            Text("Retención IRPF: ${formatoEuros(resultado.retencionIrpf)}")
         }
         Button(onClick = onVolver) { Text("Volver") }
     }

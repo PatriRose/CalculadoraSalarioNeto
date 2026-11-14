@@ -60,7 +60,7 @@ fun FormularioScreen(
         CampoDesplegable(
             seleccion = datos.pagas,
             onSeleccion = { onDatosChange( datos.copy(pagas = it)) },
-            opciones = listOf("12", "14", "14+Var"),
+            opciones = listOf("12", "14"),
             etiqueta = "Número de pagas"
         )
         CampoDesplegable(
