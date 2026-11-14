@@ -1,5 +1,6 @@
 package com.rosalina.calculadorasalarioneto.ui
 
+import java.util.Locale
 data class ResultadoSalario(
     val salarioBruto: Double,
     val cotizacionSS: Double,
@@ -46,7 +47,8 @@ fun calcularSalario(datos: DatosFormulario): ResultadoSalario? {
         neto / pagas)
 }
 
-fun formatoEuros ( valor: Double): String ="%.2f €".format(valor)
+fun formatoEuros(valor: Double): String =
+    String.format(Locale.forLanguageTag("es-ES"), "%,.2f €", valor)
 
 fun cuotaPorTramos(base: Double): Double {
     var cuota = 0.0
