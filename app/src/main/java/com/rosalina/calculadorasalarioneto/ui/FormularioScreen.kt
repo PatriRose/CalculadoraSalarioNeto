@@ -31,7 +31,8 @@ fun FormularioScreen(
     ) {
         Text(
             text = "Calculadora de salario neto",
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.headlineMedium,
+            color = MaterialTheme.colorScheme.primary
         )
         CampoNumerico(
             valor = datos.salarioBruto,

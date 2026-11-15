@@ -10,6 +10,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -41,7 +42,9 @@ fun ResultadosScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text("Resultados", style = MaterialTheme.typography.headlineSmall)
+        Text("Resultados",
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary)
 
         if (resultado == null) {
             // calcularSalario devuelve null si el salario no es válido.
@@ -53,7 +56,12 @@ fun ResultadosScreen(
             } else 0.0
 
             // Tarjeta 1: valores del bruto al neto
-            Card(modifier = Modifier.fillMaxWidth()) {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer)
+                ) {
                 Column(
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -76,7 +84,8 @@ fun ResultadosScreen(
             }
 
             //Tarjeta 2: detalle del IRPF
-            Card(modifier = Modifier.fillMaxWidth()) {
+            Card( modifier = Modifier.fillMaxWidth()
+            ) {
                 Column(
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -86,7 +95,7 @@ fun ResultadosScreen(
                 }
             }
         }
-        Button(onClick = onVolver) { Text("Volver") }
+        Button(onClick = onVolver, modifier = Modifier.fillMaxWidth()) { Text("Volver") }
     }
 }
 
