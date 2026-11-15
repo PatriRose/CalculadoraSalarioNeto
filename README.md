@@ -70,7 +70,7 @@ El cálculo es una **simulación orientativa**, no asesoramiento fiscal.
 | Mínimo por discapacidad | 3.000 € (33-64 %) · 9.000 € (65 % o más) |
 
 **Limitaciones:** Aunque en el formulario se pide el estado civil y el grupo profesional, estos dos
-datos no se han tenido en cuenta en el calculo. Esto es, no se aplica el tope de la base de cotización
+datos no se han tenido en cuenta en el cálculo. Esto es, no se aplica el tope de la base de cotización
 ni las reglas autonómicas.
 
 ## Lo que he aprendido
@@ -95,3 +95,9 @@ ni las reglas autonómicas.
 ## Fuentes
 
 - Enunciado de la actividad y tabla de IRPF 2024 (blog de Bankinter) indicada en él.
+
+## Github
+
+https://github.com/PatriRose/CalculadoraSalarioNeto
+
+
