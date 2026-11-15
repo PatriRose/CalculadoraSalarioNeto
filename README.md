@@ -11,8 +11,8 @@ Actividad 1 · Programación Multimedia y Dispositivos Móviles
 * **Formulario interactivo de datos:** Recoge la información laboral y personal del usuario mediante campos numéricos y menús desplegables (Salario bruto anual, edad, número de hijos, estado civil, número de pagas, grupo profesional y grado de discapacidad).
 * **Motor de cálculo fiscal (IRPF y Seguridad Social):**
     * Descuenta automáticamente la cotización a la Seguridad Social y los gastos deducibles generales.
-    * Calcula el **mínimo personal y familiar** sumando al mínimo general las reducciones por edad, número de hijos y grado de discapacidad .
-    * Aplica la **escala progresiva por tramos del IRPF** tanto a la base liquidable como al mínimo personal para obtener la retención real.
+    * Calcula el **mínimo personal y familiar** sumando al mínimo general las reducciones por edad, número de hijos y grado de discapacidad.
+    * Aplica la **escala progresiva por tramos del IRPF** tanto a la base liquidable como al mínimo personal para obtener la retención estimada.
 * **Desglose detallado de resultados:** Muestra en tarjetas diferenciadas el paso del bruto al neto (anual y por paga), el importe de las deducciones aplicadas y el **tipo efectivo de retención (%)**.
 
 ## Capturas
